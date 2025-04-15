@@ -67,8 +67,8 @@ const EventDetailPage: React.FC<Props> = () => {
                         <Button
                           variant="outlined"
                           sx={{
-                            color: "#14213D",
-                            borderColor: "#14213D",
+                            color: "#11181f",
+                            borderColor: "#11181f",
                           }}
                           onClick={() => {
                             navigate(selectedEvent[0]?.link);
@@ -106,7 +106,7 @@ const EventDetailPage: React.FC<Props> = () => {
           alignContent: "center",
           display: "flex",
           padding: "60px 0px",
-          background: "#14213D",
+          background: "#11181f",
         }}>
         <Grid2
           size={{ xs: 12 }}

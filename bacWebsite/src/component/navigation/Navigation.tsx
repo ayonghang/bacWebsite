@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Grid2, IconButton, Link, Typography } from "@mui/material";
-import logo from "../../assets/bacLogo.png"; // Tell webpack this JS file uses this image
+import { Facebook, Instagram } from "@mui/icons-material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Grid2, IconButton, Typography } from "@mui/material";
+import React, { useContext, useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router";
+import logo from "../../assets/bacLogo.png"; // Tell webpack this JS file uses this image
 import { SettingDrawerContext } from "../../context/drawerContext.tsx";
 import { routeList } from "../common/navigationConstant.ts";
-import { useLocation, useNavigate } from "react-router";
-import { Facebook, Instagram } from "@mui/icons-material";
 import { facebookLink, instagramLink } from "../Data/socialMediaLinks.ts";
 
 interface Props {}
@@ -67,7 +67,7 @@ const Navigation: React.FC<Props> = () => {
           container
           sx={{
             width: "100%",
-            background: "#14213D",
+            background: "#11181f",
           }}>
           <Grid2
             item

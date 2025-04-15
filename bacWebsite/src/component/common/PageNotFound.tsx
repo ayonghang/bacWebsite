@@ -48,7 +48,7 @@ const PageNotFound: React.FC<Props> = () => {
 
             <Button
               variant="contained"
-              sx={{ width: "150px", marginTop: "20px", background: "#14213D" }}
+              sx={{ width: "150px", marginTop: "20px", background: "#11181f" }}
               onClick={() => {
                 navigate("/");
               }}>

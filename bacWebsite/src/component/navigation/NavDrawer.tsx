@@ -1,11 +1,9 @@
+import { ExpandMore } from "@mui/icons-material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import XIcon from "@mui/icons-material/X";
 import { Collapse, Grid2, IconButton, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -16,12 +14,6 @@ import { useNavigate } from "react-router";
 import logo from "../../assets/bacLogo.png";
 import { SettingDrawerContext } from "../../context/drawerContext.tsx";
 import { routeList } from "../common/navigationConstant.ts";
-import {
-  ArrowDownward,
-  ExpandLess,
-  ExpandMore,
-  KeyboardArrowDown,
-} from "@mui/icons-material";
 
 export default function NavDrawer() {
   const { isDrawerOpen, setIsDrawerOpen } = useContext(SettingDrawerContext);
@@ -205,7 +197,7 @@ export default function NavDrawer() {
       onClose={toggleDrawer(false)}
       sx={{
         zIndex: 100000,
-        "& .MuiDrawer-paper": { background: "#14213D" },
+        "& .MuiDrawer-paper": { background: "#11181f" },
       }}>
       {DrawerList}
     </Drawer>

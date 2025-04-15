@@ -1,14 +1,14 @@
-import { Grid2, Typography } from "@mui/material";
+import { Grid2 } from "@mui/material";
 import React from "react";
-import { maxWidth } from "../home/homePageConstant.js.js";
-import Footer from "./Footer.tsx";
+import Footer from "../common/Footer.tsx";
+import { maxWidth } from "../home/homePageConstant.js.ts";
+import NACHomePageHeader from "./home/NacHomePageHeader.tsx";
+import NACHomePageNextGames from "./home/NACHomePageNextGames.tsx";
+import NACHomePageOverallStanding from "./home/NACHomePageOverallStanding.tsx";
+import SectionWrapper from "../common/SectionWrapper.tsx";
+interface Props {}
 
-interface Props {
-  title: string;
-  body: React.ReactNode;
-}
-
-const BodyWrapper: React.FC<Props> = ({ title, body }) => {
+const NACHomePage: React.FC<Props> = () => {
   return (
     <Grid2
       container
@@ -21,30 +21,27 @@ const BodyWrapper: React.FC<Props> = ({ title, body }) => {
       <Grid2
         size={{ xs: 12 }}
         sx={{
-          height: "150px",
+          height: { xs: "130px", sm: "130px", md: "150px", lg: "150px" },
         }}></Grid2>
+
+      {/* Top Header */}
+      <NACHomePageHeader />
+
+      {/* Next Game */}
+
+      {/* NAC Overall Standing */}
+      <SectionWrapper
+        title={"Standing"}
+        isWhiteBackground={true}
+        sectionComponent={<NACHomePageOverallStanding />}
+      />
+
       <Grid2
         size={{ xs: 12 }}
         sx={{
           maxWidth: maxWidth,
         }}>
-        <Typography
-          variant={"h6"}
-          sx={{
-            fontSize: "35px",
-            fontWeight: 700,
-            color: "#c61d23",
-            marginBottom: "20px",
-          }}>
-          {title}
-        </Typography>
-      </Grid2>
-      <Grid2
-        size={{ xs: 12 }}
-        sx={{
-          maxWidth: maxWidth,
-        }}>
-        {body}
+        {/* Body of the content goes here  */}
       </Grid2>
       <Grid2
         size={{ xs: 12 }}
@@ -69,4 +66,4 @@ const BodyWrapper: React.FC<Props> = ({ title, body }) => {
   );
 };
 
-export default BodyWrapper;
+export default NACHomePage;

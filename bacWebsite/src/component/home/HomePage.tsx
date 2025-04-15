@@ -8,6 +8,7 @@ import {
   useTheme,
 } from "@mui/material";
 import React, { Suspense, useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router";
 import backgroundVideo from "../../assets/bacVideo.mp4";
 import historyImage from "../../assets/historyImage.jpg";
 import backgroundImage from "../../assets/mobileBackground.jpg";
@@ -30,8 +31,6 @@ import {
   others,
   playerList,
 } from "./homePageConstant.js.js";
-import { useLocation, useNavigate } from "react-router";
-import BANAElectioninfo from "../common/BANAElectionInfo.tsx";
 const LargeNewsDisplay = React.lazy(() => import("./LargeNewsDisplay.tsx"));
 
 interface Props {}
@@ -492,7 +491,7 @@ const HomePage: React.FC<Props> = () => {
           alignContent: "center",
           display: "flex",
           padding: "60px 0px",
-          background: "#14213D",
+          background: "#11181f",
         }}>
         <Grid2
           size={{ xs: 12 }}

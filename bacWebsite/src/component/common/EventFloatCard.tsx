@@ -96,7 +96,7 @@ const EventFloatCard: React.FC<Props> = () => {
               <Box sx={{ width: "100%" }}>
                 <Button
                   variant="contained"
-                  sx={{ marginTop: "20px", background: "#14213D" }}
+                  sx={{ marginTop: "20px", background: "#11181f" }}
                   onClick={() => {
                     navigate(`/event/${latestData[activeStep]?.id}/detail`);
                   }}>
@@ -108,8 +108,8 @@ const EventFloatCard: React.FC<Props> = () => {
                     sx={{
                       marginTop: "20px",
                       marginLeft: "20px",
-                      color: "#14213D",
-                      borderColor: "#14213D",
+                      color: "#11181f",
+                      borderColor: "#11181f",
                     }}
                     onClick={() => {
                       navigate(latestData[activeStep]?.link);
