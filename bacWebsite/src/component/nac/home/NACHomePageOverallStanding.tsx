@@ -2,16 +2,30 @@ import { Box, Grid2, Typography } from "@mui/material";
 import React from "react";
 import { maxWidth } from "../../home/homePageConstant.js.ts";
 import { DataGrid } from "@mui/x-data-grid";
+import { useTournamentStanding } from "../../../query/tournamentQuery.ts";
+import { getTournamentId } from "../../../util/getTournamentId.ts";
+import { useTournamentTeamsDetail } from "../../../query/teamQuery.ts";
+import { getTournamentDetail } from "../nacUtil.ts";
 
 interface Props {}
 
+const width = 80;
+
 const NACHomePageOverallStanding: React.FC<Props> = () => {
+  const { data: tournamentStanding, isLoading: standingIsLoading } =
+    useTournamentStanding(getTournamentId());
+
+  const {
+    data: tournamentTeamsDetail,
+    isLoading: tournamentTeamsDetailIsLoading,
+  } = useTournamentTeamsDetail(getTournamentId());
+
   const columns = [
     {
       field: "clubName",
       headerName: "Club Name",
       flex: 1,
-      renderCell: (params) => (
+      renderCell: (params: any) => (
         <Box
           sx={{
             height: "100%",
@@ -26,8 +40,15 @@ const NACHomePageOverallStanding: React.FC<Props> = () => {
                 style={{ width: "30px", height: "30px", background: "gray" }}
               />
             </Grid2>
-            <Grid2 item sx={{ display: "flex", alignItems: "center" }}>
-              <Typography variant="body2">Baltimore Athletic Club</Typography>
+            <Grid2
+              item
+              sx={{
+                alignItems: "center",
+                display: { xs: "none", sm: "flex", md: "flex", lg: "flex" },
+              }}>
+              <Typography variant="body2">
+                {getTournamentDetail(tournamentTeamsDetail, params?.id)?.name}
+              </Typography>
             </Grid2>
           </Grid2>
         </Box>
@@ -36,197 +57,46 @@ const NACHomePageOverallStanding: React.FC<Props> = () => {
     {
       field: "matchPlayed",
       headerName: "MP",
-      width: 150,
+      width: width,
     },
     {
       field: "win",
       headerName: "W",
-      width: 150,
+      width: width,
     },
     {
       field: "draw",
       headerName: "D",
-      width: 150,
+      width: width,
     },
     {
-      field: "lost",
+      field: "loss",
       headerName: "L",
-      width: 150,
+      width: width,
     },
     {
-      field: "goalDifference",
+      field: "goalFor",
+      headerName: "GF",
+      width: width,
+    },
+    {
+      field: "goalAgainst",
+      headerName: "GA",
+      width: width,
+    },
+    {
+      field: "goalDiff",
       headerName: "GD",
-      width: 150,
+      width: width,
     },
     {
       field: "points",
       headerName: "Pts",
-      width: 150,
+      width: width,
     },
   ];
 
-  const rows = [
-    {
-      id: 1,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 2,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 3,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 4,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 5,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 6,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 7,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 8,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 9,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 10,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 11,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 12,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 13,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 14,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 15,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-    {
-      id: 16,
-      clubName: "Baltimore Athletic Club",
-      matchPlayed: 0,
-      win: 0,
-      draw: 0,
-      lost: 0,
-      goalDifference: 0,
-      points: 0,
-    },
-  ];
+  const rows = tournamentStanding;
 
   return (
     <Grid2
@@ -265,8 +135,11 @@ const NACHomePageOverallStanding: React.FC<Props> = () => {
         }}>
         <DataGrid
           rows={rows}
+          getRowId={(row) => row?.teamId}
           columns={columns}
           checkboxSelection={false}
+          disableColumnFilter
+          disableColumnMenu={true}
           initialState={{
             pagination: {
               paginationModel: {
@@ -274,6 +147,7 @@ const NACHomePageOverallStanding: React.FC<Props> = () => {
               },
             },
           }}
+          loading={standingIsLoading || tournamentTeamsDetailIsLoading}
           hideFooterPagination={true}
           disableRowSelectionOnClick
         />

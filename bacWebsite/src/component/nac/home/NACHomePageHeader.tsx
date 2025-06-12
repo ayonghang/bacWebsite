@@ -12,7 +12,7 @@ const NACHomePageHeader: React.FC<Props> = () => {
       sx={{
         position: "relative",
         width: "100%",
-        height: `calc(90vh)`,
+        height: `calc(70vh - 150px)`,
         overflow: "hidden",
         display: "flex",
       }}>

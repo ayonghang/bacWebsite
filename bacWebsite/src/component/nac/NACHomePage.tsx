@@ -6,6 +6,7 @@ import NACHomePageHeader from "./home/NacHomePageHeader.tsx";
 import NACHomePageNextGames from "./home/NACHomePageNextGames.tsx";
 import NACHomePageOverallStanding from "./home/NACHomePageOverallStanding.tsx";
 import SectionWrapper from "../common/SectionWrapper.tsx";
+import NACHomePageWelcomeVideo from "./home/NACHomePageWelcomeVideo.tsx";
 interface Props {}
 
 const NACHomePage: React.FC<Props> = () => {
@@ -28,6 +29,9 @@ const NACHomePage: React.FC<Props> = () => {
       <NACHomePageHeader />
 
       {/* Next Game */}
+      <NACHomePageNextGames />
+
+      <NACHomePageWelcomeVideo />
 
       {/* NAC Overall Standing */}
       <SectionWrapper
