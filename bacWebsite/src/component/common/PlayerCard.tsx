@@ -18,7 +18,6 @@ const PlayerCard: React.FC<Props> = ({
   jerseyNumber,
   src,
 }) => {
-  console.log(src);
   return (
     <Card>
       <Grid2 container>

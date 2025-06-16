@@ -14,7 +14,12 @@ interface Props {
   options: Array;
 }
 
-const FormikSelect: React.FC<Props> = ({ name, label, options, ...props }) => {
+const FormikSelect: React.FC<Props> = ({
+  name,
+  label,
+  options = [],
+  ...props
+}) => {
   const { values, setFieldValue, errors, touched } = useFormikContext();
 
   const hasError = getIn(errors, name) && getIn(touched, name);

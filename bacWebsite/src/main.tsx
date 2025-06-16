@@ -18,6 +18,10 @@ import ThreeKRunForm from "./component/event/registration/ThreeKRunForm.tsx";
 import NACHomePage from "./component/nac/NACHomePage.tsx";
 import TeamsPage from "./component/teams/TeamsPage.js.tsx";
 import NACStandingPage from "./component/nac/NACStandingPage.tsx";
+import AdminPage from "./component/admin/tournament/AdminPage.tsx";
+import UpdateTournament from "./component/admin/updateTournament/UpdateTournament.tsx";
+import UpdateTournamentContextProvider from "./context/updateTournamentContext.tsx";
+import { ToastContainer } from "react-toastify";
 
 const theme = createTheme({
   typography: {
@@ -46,6 +50,19 @@ createRoot(document.getElementById("root")!).render(
           <NavDrawer />
         </SettingDrawerProvider>
 
+        <ToastContainer
+          position="top-right"
+          autoClose={false}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+          style={{ marginTop: "140px" }}
+        />
         <Routes>
           <Route path="/" index element={<HomePage />} />
           <Route path="/history" element={<HistoryPage />} />
@@ -55,6 +72,15 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/nac/home" element={<NACHomePage />} />
           <Route path="/nac/standing" element={<NACStandingPage />} />
           <Route path="/nac/registration" element={<NACHomePage />} />
+          <Route path="/nac/admin" element={<AdminPage />} />
+          <Route
+            path="/nac/admin/:id"
+            element={
+              <UpdateTournamentContextProvider>
+                <UpdateTournament />
+              </UpdateTournamentContextProvider>
+            }
+          />
 
           <Route path="/teams" element={<TeamsPage />} />
           <Route path="/*" element={<PageNotFound />} />
